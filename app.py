@@ -215,7 +215,7 @@ if st.button("Process ATT&CK Data"):
     st.dataframe(combined_df)
 
     output = BytesIO()
-    with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
         combined_df.to_excel(writer, index=False, sheet_name="Mitre Att&ck Matrix Key")
 
     st.download_button(
